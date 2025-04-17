@@ -51,8 +51,18 @@ header .avatar img {
   border-radius: 50%;
 }
 
+header .menu-toggle {
+  display: none;
+  cursor: pointer;
+  padding: 10px;
+  margin-left: 20px;
+  border: none;
+  background: unset;
+}
+
 .searchBox {
-  min-width: 350px;
+  max-width: 350px;
+  width: 100%;
 }
 
 .searchIcon {
@@ -149,6 +159,7 @@ header .logo a {
   list-style-type: none;
   padding: 0 20px 0 0;
   margin: 0;
+  transition: 0.2s;
 }
 
 .leftMenu__header {
@@ -459,4 +470,23 @@ footer {
   padding: 20px;
   border-top: 1px solid #e0e0e0;
   margin-top: 50px;
+}
+
+@media (max-width: 768px) {
+  header {
+    padding: 20px 0;
+  }
+  header .avatar.hide-on-mobile {
+    display: none;
+  }
+  header .menu-toggle {
+    display: block;
+  }
+  .leftMenu__header {
+    text-align: center;
+  }
+  .leftMenu {
+    height: 0;
+    overflow: hidden;
+  }
 }

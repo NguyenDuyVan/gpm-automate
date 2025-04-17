@@ -87,14 +87,16 @@
     <header>
       <div class="loadingProgressContainer" style="width: 0px"></div>
       <div class="container">
-        <div class="logo d-none d-sm-none d-md-block">
-          <a href="/"
-            ><img
-              loading="lazy"
-              src="https://app.gpmautomate.com/assets/img/header-logo.png"
-              alt="GPM AppStore"
-              style="max-height: 30px"
-          /></a>
+        <div class="logo-wrapper">
+          <div class="logo d-none d-sm-none d-md-block">
+            <a href="/"
+              ><img
+                loading="lazy"
+                src="https://app.gpmautomate.com/assets/img/header-logo.png"
+                alt="GPM AppStore"
+                style="max-height: 30px"
+            /></a>
+          </div>
         </div>
         <div class="searchBox d-flex">
           <form method="get" class="flex-fill">
@@ -117,7 +119,7 @@
           </form>
         </div>
         <a
-          class="avatar"
+          class="avatar hide-on-mobile"
           href="https://app.gpmautomate.com/login"
           title="Click để đăng nhập"
           ><img
@@ -125,12 +127,13 @@
             src="assets/img/avatars/default.png"
             alt="Đăng nhập"
         /></a>
+        <button class="menu-toggle" id="menu-toggle">☰</button>
       </div>
     </header>
     <div class="container">
       <div class="row">
         <div class="col-md-3 leftMenuContainer">
-          <ul class="leftMenu">
+          <ul class="leftMenu" id="leftMenuId">
             <li class="leftMenu__header">Categories</li>
             <li class="leftMenu__item active">
               <a
@@ -173,6 +176,9 @@
                 href="https://app.gpmautomate.com?fbclid=IwY2xjawJm-aBleHRuA2FlbQIxMAABHnSqyywl2iDOTs19XYSdGv01shqayi8GhnWoZE3jvQ_AKpkeZ_PS05APVjMD_aem_wA0oHKfq5cip4CqHX8yeBw&amp;category_id=6"
                 >Outlook</a
               >
+            </li>
+            <li class="leftMenu__item menu_item--login d-md-none">
+              <a href="https://app.gpmautomate.com/login">Login</a>
             </li>
           </ul>
         </div>
@@ -923,6 +929,17 @@
             resultDropdownList.append(html);
           });
         });
+      });
+
+      // toggle menu
+      const toggleBtn = document.getElementById("menu-toggle");
+      const leftMenu = document.getElementById("leftMenuId");
+
+      toggleBtn.addEventListener("click", function () {
+        const currentHeight = leftMenu.offsetHeight;
+        console.log("Toggle button clicked", currentHeight);
+
+        leftMenu.style.height = currentHeight === 0 ? "396px" : "0px";
       });
     </script>
     <div
